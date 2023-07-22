@@ -1,8 +1,11 @@
+import Home from "../pages/Home/Home";
+import Navbar from "../pages/SheredPage/Navbar";
 
 const Main = () => {
     return (
-        <div>
-            
+        <div className="bg-[#edf1f4]">
+            <Navbar/>
+            <Home/>
         </div>
     );
 };
