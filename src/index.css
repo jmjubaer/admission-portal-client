@@ -23,6 +23,9 @@
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1),inset -5px -5px 10px #fff;
   background: transparent;
 }
+.active:active, .active:hover{
+  @apply disc_effects
+}
 .disc_effects_up{
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
   background: transparent;
