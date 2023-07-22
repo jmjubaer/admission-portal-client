@@ -30,3 +30,10 @@
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
   background: transparent;
 }
+
+.input_effects{
+  box-shadow: -4px -4px 10px rgba(255, 255, 255, 1),
+  inset -4px -4px 10px rgba(255, 255, 255, 1),
+  4px 4px 10px rgba(0, 0, 0,0.05),
+  inset 4px 4px 10px rgba(0, 0, 0, 0.05);
+}

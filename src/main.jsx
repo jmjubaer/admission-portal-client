@@ -7,10 +7,12 @@ import Login from './pages/Authentication/Login'
 import AuthProvider from './Provider/AuthProvider'
 import SignUp from './pages/Authentication/SignUp'
 import Home from './pages/Home/Home'
+import NotFound from './pages/SheredPage/NotFound'
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <NotFound/>,
     children: [
       {
         path: "/",
