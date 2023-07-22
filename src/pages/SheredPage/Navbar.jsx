@@ -5,7 +5,7 @@ import useAuthContext from "../../Hooks/UseAuthContext";
 import { ImExit } from "react-icons/im";
 const Navbar = () => {
     const [open, setOpen] = useState(false);
-    const [control, setControl] = useState(true);
+    const [control, setControl] = useState(false);
     const {user,logOut} = useAuthContext();
     return (
         <div className="fixed top-0 left-0 bg-[#edf1f4] w-full">

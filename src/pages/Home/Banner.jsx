@@ -10,7 +10,7 @@ const Banner = () => {
                 </h1>
                 <h2 className="text-3xl my-5 text-[#485460]">Search Your Perfect Collage.</h2>
                 <form action="" className="flex w-4/5 mx-auto mt-8">
-                    <input type="text" name="searchText" placeholder="Search Your Favorite collage" className="w-4/5 input_effects rounded-s-3xl p-3 px-5 outline-none"/>
+                    <input type="text" name="searchText" placeholder="Search Your Favorite collage" className="w-4/5 input_effects rounded-s-3xl p-3 px-5 outline-none border border-[#0be881]"/>
                     <input type="submit" value="Search" className="p-3 rounded-e-3xl w-1/5 bg-[#0be881]"/>
                 </form>
             </div>
