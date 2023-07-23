@@ -8,6 +8,7 @@ import AuthProvider from './Provider/AuthProvider'
 import SignUp from './pages/Authentication/SignUp'
 import Home from './pages/Home/Home'
 import Profiles from './pages/Authentication/Profiles'
+import AllCollages from './pages/Collages/AllCollages'
 // import NotFound from './pages/SheredPage/NotFound'
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profiles></Profiles>
+      },
+      {
+        path: "/collages",
+        element: <AllCollages></AllCollages>
       },
     ]
   }
