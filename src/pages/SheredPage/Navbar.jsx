@@ -8,7 +8,7 @@ const Navbar = () => {
     const [control, setControl] = useState(false);
     const {user,logOut} = useAuthContext();
     return (
-        <div className="fixed top-0 left-0 bg-[#edf1f4] w-full">
+        <div className="fixed top-0 z-30 left-0 bg-[#edf1f4] w-full">
             <nav className='flex lg:grid lg:grid-cols-5 justify-between items-center jm_container py-2 '>
                 <div className='text-4xl lg:col-span-2 text-[#0fbcf9] jm-shadow'><Link to="/"> <span className='logo_font text-5xl text-[#575fcf]'>
                     A</span>dmission <span className='logo_font text-5xl text-[#575fcf]'>P</span>ortal</Link></div>
