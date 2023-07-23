@@ -49,7 +49,7 @@ const Profiles = () => {
                     <FaSchool className="text-3xl"/>
                     <div className="border-l-2 border-[#575fcf] text-left pl-5">
                         <h4 className="font-bold">Collage/university</h4>
-                        <p className="text-xl">{userInfo?.education}</p>
+                        <p className="text-xl">{userInfo?.collage}</p>
                     </div>
                 </div>
                 <button className="disc_effects_up w-1/2 rounded-xl mx-auto active font-bold text-[#f53b57] text-lg py-3">Edit Profile</button>
