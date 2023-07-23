@@ -9,6 +9,7 @@ const Admission = () => {
     const { register, handleSubmit, reset } = useForm();
     const [modal,setModal] = useState(false);
     const [colageId,setCollageId] = useState("");
+    const [collageName,setCollageName] = useState("");
     const [collages,setCollages] = useState([]);
     useEffect(() =>{
         fetch("http://localhost:5000/collages")
@@ -17,9 +18,26 @@ const Admission = () => {
                 setCollages(data);
             });
     },[])
-    const handleModal = (id) => {
-        setModal(true);
-        setCollageId(id);
+    const handleModal = (collage) => {
+        setCollageId(collage?._id);
+        setCollageName(collage?.collegeName);
+        fetch(`http://localhost:5000/mycollage?email=${user?.email}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data){
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Oops...',
+                    text: "You'r Already Admitted in a Collage",
+                  })
+
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+            setModal(true);
+        })
     }
     const handleAdmission = (data) => {
         data.collageId = colageId
@@ -31,6 +49,15 @@ const Admission = () => {
         .then(res => res.json())
         .then(dataRes => {
             if(dataRes?.insertedId){
+                fetch(`http://localhost:5000/user/${user?.email}`,{
+                    method: "put",
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({collageName})
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                })
                 Swal.fire({
                     icon: "success",
                     title: "Submitted successfully",
@@ -46,16 +73,20 @@ const Admission = () => {
         <div className="my-28">
             <h2 className="text-center text-3xl font-semibold text-[#0fbcf9] mb-8">All Collage Lists</h2>
             <table className="jm_table ">
-                <tr className="">
-                    <th>#</th>
-                    <th>Collage Name</th>
-                </tr>
+                <thead>
+                    <tr className="">
+                        <th>#</th>
+                        <th>Collage Name</th>
+                    </tr>
+                </thead>
+                <tbody>
                 {
                     collages.map((collage,idx) => <tr key={collage?._id}>
                         <td className="font-bold p-2">{idx + 1}</td>
-                        <td className="text-left px-8 "><button onClick={() => handleModal(collage?._id)} className="text-[#007aff] hover:underline">{collage?.collegeName}</button></td>
+                        <td className="text-left px-8 "><button onClick={() => handleModal(collage)} className="text-[#007aff] hover:underline">{collage?.collegeName}</button></td>
                     </tr>)
                 }
+                </tbody>
             </table>
             <div className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#f8f8f8] p-5 rounded-xl shadow-xl z-40 w-1/2 h-[80vh] overflow-auto ${modal ? "block" : "hidden"}`}>
                 <button onClick={() => setModal(false)} className="fixed top-1 right-1 text-3xl text-red-500 z-50"><FaTimesCircle/></button>
@@ -70,7 +101,10 @@ const Admission = () => {
                     </div>
                     <div className="w-full flex flex-col my-5">
                         <label className="text-xl mb-4" htmlFor="number">Phone Number:</label>
-                        <input required placeholder="Enter Your Phone number ...... " type="number" {...register("number")} id="number" className="input_effects p-3 px-5 rounded-xl outline-none"/>
+                        <div className="w-full relative">
+                            <input required placeholder="Enter Your Phone number ...... " type="number" {...register("number")} id="number" className="input_effects p-3 px-5 rounded-xl outline-none w-full pl-14"/>
+                            <p className="absolute top-[10px] left-2 font-bold text-lg">+880</p>
+                        </div>
                     </div>
                     <div className="w-full flex flex-col my-5">
                         <label className="text-xl mb-4" htmlFor="address">Address:</label>
