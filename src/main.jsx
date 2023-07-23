@@ -12,6 +12,7 @@ import AllCollages from './pages/Collages/AllCollages'
 import Details from './pages/CollageDetails/Details'
 import PrivetRoute from './components/PrivetRoute'
 import Admission from './pages/Admission/Admission'
+import MyCollage from './pages/MyCollage/MyCollage'
 // import NotFound from './pages/SheredPage/NotFound'
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "/admission",
         element: <Admission></Admission>
+      },
+      {
+        path: "/myCollage",
+        element: <MyCollage></MyCollage>
       },
     ]
   }
