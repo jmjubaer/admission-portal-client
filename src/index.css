@@ -33,7 +33,17 @@
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
   background: transparent;
 }
-
+.animation{
+  animation: spin 0.5s linear infinite;
+}
+@keyframes spin{
+  0%{
+      transform: rotate(180deg);
+  }
+  100%{
+      transform: rotate(360deg);
+  }
+}
 .input_effects{
   box-shadow: -4px -4px 10px rgba(255, 255, 255, 1),
   inset -4px -4px 10px rgba(255, 255, 255, 1),
