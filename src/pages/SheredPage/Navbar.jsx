@@ -36,9 +36,8 @@ const Navbar = () => {
                         >
                             <ul>
                                 <li>
-                                    <Link className="flex items-center gap-5">
-                                        <img className="w-11 h-11 rounded-full object-cover border-2" src={user?.photoURL} alt="Profile Image"
-                                        />
+                                    <Link to={"/profile"} onClick={() => setControl(false)} className="flex items-center gap-5">
+                                        <img className="w-11 h-11 rounded-full object-cover border-2" src={user?.photoURL} alt="Profile Image" />
                                         <span className="text-xl font-medium">
                                             {user?.displayName}
                                         </span>

@@ -3,7 +3,7 @@ import Navbar from "../pages/SheredPage/Navbar";
 
 const Main = () => {
     return (
-        <div className="bg-[#edf1f4] overflow-auto">
+        <div className="bg-[#edf1f4] overflow-auto min-h-[100vh]">
             <Navbar/>
             <Outlet/>
         </div>

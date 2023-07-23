@@ -18,6 +18,7 @@ const SignUp = () => {
     }`;
     const navigate = useNavigate();
     const handleSingUp = (data) => {
+        console.log(data);
         const fullName = data?.firstName + " " + data?.lastName;
         const formData = new FormData();
         formData.append("image", data?.image[0]);
@@ -37,14 +38,31 @@ const SignUp = () => {
                                         displayName: fullName,
                                         photoURL: imgRes?.data?.display_url,
                                     }).then(() => {
-                                        Swal.fire({
-                                            icon: "success",
-                                            title: "Sign UP success",
-                                            showConfirmButton: false,
-                                            timer: 1500,
-                                        });
-                                        reset();
-                                        navigate("/");
+                                        const newUser = {
+                                            name: fullName,
+                                            image: imgRes?.data?.display_url,
+                                            address: data?.address,
+                                            email: data?.email,
+                                        }
+                                        console.log(newUser);
+                                        fetch('http://localhost:5000/user',{
+                                            method: 'POST',
+                                            headers: {'Content-Type': 'application/json'},
+                                            body: JSON.stringify(newUser)
+                                        })
+                                        .then(res => res.json())
+                                        .then(data => {
+                                            if(data?.insertedId){
+                                                Swal.fire({
+                                                    icon: "success",
+                                                    title: "Sign UP success",
+                                                    showConfirmButton: false,
+                                                    timer: 1500,
+                                                });
+                                                reset();
+                                                navigate("/");
+                                            }
+                                        })
                                     });
                                 }
                             })
@@ -96,18 +114,21 @@ const SignUp = () => {
                     <label className="text-xl mb-4" htmlFor="">
                         Profile Image:
                     </label>
+                    <input required type="file" {...register("image")} className="disc_effects rounded-xl outline-none file-input" />
+                </div>
+                <div className="w-full flex flex-col mt-8">
+                    <label className="text-xl mb-4" htmlFor="address">
+                        Address:
+                    </label>
                     <input
                         required
-                        type="file"
-                        {...register("image")}
-                        id=""
-                        className="disc_effects rounded-xl outline-none file-input"
+                        placeholder="Enter Your Address ...... "
+                        type="text"
+                        {...register("address")}
+                        id="address"
+                        className="disc_effects p-3 px-5 rounded-xl outline-none"
                     />
                 </div>
-                {/* <div className="w-full flex flex-col mt-8">
-                    <label className="text-xl mb-4" htmlFor="">Banner Image:</label>
-                    <input required type="file" {...register("bannerImage")} id="" className="disc_effects rounded-xl outline-none file-input"/>
-                </div> */}
                 <div className="w-full flex flex-col mt-8">
                     <label className="text-xl mb-4" htmlFor="email">
                         Email:
