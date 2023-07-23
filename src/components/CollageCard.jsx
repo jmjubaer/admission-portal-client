@@ -2,9 +2,10 @@
 import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
+import { Link } from 'react-router-dom';
 
 const CollageCard = ({collage}) => {
-    const {admissionDates,collegeImage,collegeName,collegeRating,numberOfResearch,numberOfSports,events,} = collage || {};
+    const {admissionDates,collegeImage,collegeName,collegeRating,numberOfResearch,numberOfSports,events,_id} = collage || {};
     return (
             <div className="card z-0 card-compact rounded-3xl shadow-xl border robot disc_effects">
                 <figure className=""><img className="w-full h-80 object-cover" src={collegeImage} alt="Shoes" /></figure>
@@ -48,7 +49,9 @@ const CollageCard = ({collage}) => {
                     </div>
                     
                     <div className="card-actions justify-center my-8 mb-5">
-                        <button className="btn active text-[#05c46b] disc_effects_up w-1/3 font-bold text-lg">Details</button>
+                        <Link to={`/collages/${_id}`} className='w-1/3'>
+                            <button className="btn active text-[#05c46b] disc_effects_up w-full font-bold text-lg">Details</button>
+                        </Link>
                     </div>
                 </div>
             </div>

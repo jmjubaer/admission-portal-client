@@ -9,7 +9,6 @@ const Collage = () => {
             setCollages(data);
         })
     },[])
-    console.log(collages);
     return (
         <div className="my-28 jm_container ">
             <h2 className="text-4xl font-semibold">Find Your Best <span className="font-normal logo_font text-[#575fcf]">Collage</span></h2>
