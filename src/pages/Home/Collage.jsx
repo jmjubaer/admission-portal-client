@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import CollageCard from "../../components/CollageCard";
+import SectionTitle from "../../components/SectionTitle";
 const Collage = () => {
     const [collages,setCollages] = useState([]);
     useEffect(() => {
@@ -11,7 +12,7 @@ const Collage = () => {
     },[])
     return (
         <div className="my-28 jm_container ">
-            <h2 className="text-4xl font-semibold">Find Your Best <span className="font-normal logo_font text-[#575fcf]">Collage</span></h2>
+            <SectionTitle title={"Find Your Best"} splTitle={"Collage"}></SectionTitle>
             <div className="grid grid-cols-2 mt-14 gap-5 justify-evenly">
                 {
                     collages.slice(0,3).map(collage => <CollageCard key={collage?._id} collage={collage}></CollageCard>)

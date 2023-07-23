@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import SectionTitle from "../../components/SectionTitle";
 
 const Gallery = () => {
     const [images,setImages] = useState([]);
@@ -12,7 +13,7 @@ const Gallery = () => {
     console.log(images);
     return (
         <div className="my-28 jm_container">
-            <h2 className="text-4xl font-semibold">Explore the Collage  <span className="font-normal logo_font text-[#575fcf]"> Image Gallery</span></h2>
+            <SectionTitle title={"Explore the Collage"} splTitle={"Image Gallery"}></SectionTitle>
             <div className="grid grid-cols-3 gap-8 mt-14">
                 {
                     images?.map(image => <div  key={image?._id} className="">
