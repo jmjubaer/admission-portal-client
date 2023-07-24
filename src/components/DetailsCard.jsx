@@ -5,14 +5,14 @@ import '@smastrom/react-rating/style.css'
 const DetailsCard = ({details}) => {
     const {admissionDates,collegeImage,collegeName,collegeRating,numberOfResearch,researchWorks,sportsCategories,eventsDetails,admissionProcess} = details || {};
     return (
-        <div className="    ">
-            <div className="card z-0 card-compact rounded-3xl shadow-xl border robot disc_effects w-4/5 mx-auto mt-5">
+        <div className="">
+            <div className="card z-0 card-compact rounded-3xl shadow-xl border robot disc_effects md:w-11/12 lg:w-4/5 mx-auto mt-5">
                 <figure className=""><img className="w-full h-[80vh] object-cover" src={collegeImage} alt="Collage image" /></figure>
                 <div className="card-body flex-col justify-between m-5">
                     <h2 className="card-title text-2xl robot">{collegeName}</h2>
 
-                    <div className="flex gap-8 justify-around my-5">
-                        <div className="w-[48%] pr-3">
+                    <div className="sm:flex gap-8 justify-around my-5">
+                        <div className="sm:w-[48%] pr-3">
                             <div className="">
                                 <h3 className="text-lg font-medium inline robot">Numbers of Research: </h3>
                                 <p className="inline text-3xl font-bold ml-3"> {numberOfResearch}</p>
@@ -49,9 +49,9 @@ const DetailsCard = ({details}) => {
                             </div>
                         </div>
 
-                        <div className="w-2 disc_effects_up bg-[#05c46b]"></div>
+                        <div className="w-2 hidden sm:block disc_effects_up bg-[#05c46b]"></div>
 
-                        <div className="w-[48%]">
+                        <div className="sm:w-[48%]">
                             <div className="">
                                 <h3 className="text-xl font-bold robot">Events: </h3>
                                 <ul className="robot ml-10">

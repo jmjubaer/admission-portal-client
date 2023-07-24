@@ -101,9 +101,9 @@ const MyCollage = () => {
             </div>
             <div className="mt-14">
                 <SectionTitle title={"Student"} splTitle={"information"}></SectionTitle>
-                <div className="mt-14 w-4/5 mx-auto disc_effects p-8 rounded-xl">
-                    <div className="flex gap-8 justify-around my-5">
-                        <div className="w-[48%] pr-3">
+                <div className="mt-14 md:w-11/12 lg:w-4/5 mx-auto disc_effects p-8 rounded-xl">
+                    <div className="md:flex gap-8 justify-around my-5">
+                        <div className="md:w-[48%] pr-3">
                             <div className="">
                                 <h3 className="text-lg font-medium inline robot">Name: </h3>
                                 <p className="inline text-xl font-bold ml-3"> {name}</p>
@@ -124,9 +124,9 @@ const MyCollage = () => {
                             </div>
                         </div>
 
-                        <div className="w-2 disc_effects_up bg-[#05c46b]"></div>
+                        <div className="w-2 hidden md:block disc_effects_up bg-[#05c46b]"></div>
 
-                        <div className="w-[48%]">
+                        <div className="md:w-[48%]">
                             <div className="my-5">
                                 <h3 className="text-lg font-medium inline robot">Address: </h3>
                                 <p className="inline text-xl font-bold ml-3"> {address}</p>
@@ -143,9 +143,9 @@ const MyCollage = () => {
                         
 
                     </div>
-                    <form onSubmit={handleFeedback} className="w-4/5 mx-auto mt-8">
+                    <form onSubmit={handleFeedback} className="w-full md:w-4/5 mx-auto mt-8">
                         <textarea required type="email" name="feedback" id="" className="p-3 w-full disc_effects min-h-[150px] px-5 outline-none rounded-lg" placeholder="Enter Your Feedback...."/>
-                        <div className="flex gap-5 mt-5">
+                        <div className="flex flex-wrap gap-5 mt-5">
                             <p className=" text-lg font-semibold">Give rating:</p>
                             <Rating style={{ maxWidth: 150 }} value={rating}
                                         onChange={setRating}

@@ -72,7 +72,7 @@ const Admission = () => {
     return (
         <div className="my-28">
             <h2 className="text-center text-3xl font-semibold text-[#0fbcf9] mb-8">All Collage Lists</h2>
-            <table className="jm_table ">
+            <table className="jm_table md:w-1/2 mx-auto md:text-xl">
                 <thead>
                     <tr className="">
                         <th>#</th>

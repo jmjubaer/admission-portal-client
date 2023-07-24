@@ -46,10 +46,12 @@ const Profiles = () => {
                 </div>
                 
                 <div className="flex rounded-3xl gap-5 items-center p-3 disc_effects px-5 my-5">
+                    <div className="">
                     <FaSchool className="text-3xl"/>
-                    <div className="border-l-2 border-[#575fcf] text-left pl-5">
+                    </div>
+                    <div className="border-l-2 border-[#575fcf] w-full text-left pl-5">
                         <h4 className="font-bold">Collage/university</h4>
-                        <p className="text-xl">{userInfo?.collageName}</p>
+                        <p className="text-xl text-ellipsis overflow-hidden whitespace-nowrap w-4/5">{userInfo?.collageName}</p>
                     </div>
                 </div>
                 <button className="disc_effects_up w-1/2 rounded-xl mx-auto active font-bold text-[#f53b57] text-lg py-3">Edit Profile</button>

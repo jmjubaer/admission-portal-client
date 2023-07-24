@@ -79,10 +79,11 @@ const SignUp = () => {
             toast("Password does not match");
         }
     };
+    // data-aos="zoom-in"
     return (
-        <div data-aos="zoom-in" className="bg-white rounded-xl p-5 my-28 disc_effects_up w-1/2 mx-auto">
+        <div  className="bg-white rounded-xl p-5 my-28 disc_effects_up  w-11/12 md:w-1/2 mx-auto">
             <form onSubmit={handleSubmit(handleSingUp)} className="">
-                <div className="grid grid-cols-2 gap-5">
+                <div className="grid md:grid-cols-2 gap-5">
                     <div className="w-full flex flex-col">
                         <label className="text-xl mb-4" htmlFor="firstName">
                             First Name:
@@ -142,7 +143,7 @@ const SignUp = () => {
                         className="disc_effects p-3 px-5 rounded-xl outline-none"
                     />
                 </div>
-                <div className="grid grid-cols-2 gap-5 mt-8">
+                <div className="grid md:grid-cols-2 gap-5 mt-8">
                     <div className="w-full flex flex-col relative">
                         <label className="text-xl mb-4" htmlFor="pass">
                             Password:

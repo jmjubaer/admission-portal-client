@@ -12,7 +12,7 @@ const AllCollages = () => {
     }, []);
     return (
         <div>
-            <div className="grid grid-cols-2 my-28 gap-5 justify-evenly jm_container">
+            <div className="grid lg:grid-cols-2 my-28 gap-5 justify-evenly jm_container">
                 {collages.map((collage) => (
                     <CollageCard
                         key={collage?._id}

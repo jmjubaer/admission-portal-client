@@ -58,12 +58,13 @@ const Login = () => {
               })
         })
     }
+    // data-aos="zoom-in"
     return (
-        <div data-aos="zoom-in" className="bg-white rounded-xl p-5 my-28 disc_effects_up w-1/2 mx-auto">
+        <div  className=" rounded-xl p-5 my-28 disc_effects_up w-11/12 md:w-1/2 mx-auto">
             <form onSubmit={handleLogin} className="">
                 <div className="w-full flex flex-col">
                     <label className="text-xl mb-4" htmlFor="email">Email:</label>
-                    <input required placeholder="Enter Your Email ...... " type="email" name="email" id="email" className="disc_effects p-3 px-5 rounded-xl outline-none"/>
+                    <input required placeholder="Enter Your Email ...... "  type="email" name="email" id="email" className="disc_effects p-3 px-5 rounded-xl outline-none"/>
                 </div>
                 <div className="w-full flex flex-col mt-8 relative">
                     <label className="text-xl mb-4" htmlFor="pass">Password:</label>
