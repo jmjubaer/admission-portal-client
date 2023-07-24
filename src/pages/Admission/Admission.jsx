@@ -12,7 +12,7 @@ const Admission = () => {
     const [collageName, setCollageName] = useState("");
     const [collages, setCollages] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/collages")
+        fetch("https://admission-portal-server.vercel.app/collages")
             .then((res) => res.json())
             .then((data) => {
                 setCollages(data);
@@ -21,7 +21,9 @@ const Admission = () => {
     const handleModal = (collage) => {
         setCollageId(collage?._id);
         setCollageName(collage?.collegeName);
-        fetch(`http://localhost:5000/mycollage?email=${user?.email}`)
+        fetch(
+            `https://admission-portal-server.vercel.app/mycollage?email=${user?.email}`
+        )
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
@@ -40,7 +42,7 @@ const Admission = () => {
     };
     const handleAdmission = (data) => {
         data.collageId = colageId;
-        fetch("http://localhost:5000/myCollage", {
+        fetch("https://admission-portal-server.vercel.app/myCollage", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
@@ -48,11 +50,14 @@ const Admission = () => {
             .then((res) => res.json())
             .then((dataRes) => {
                 if (dataRes?.insertedId) {
-                    fetch(`http://localhost:5000/user/${user?.email}`, {
-                        method: "put",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ collageName }),
-                    })
+                    fetch(
+                        `https://admission-portal-server.vercel.app/user/${user?.email}`,
+                        {
+                            method: "put",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ collageName }),
+                        }
+                    )
                         .then((res) => res.json())
                         .then((data) => {
                             console.log(data);

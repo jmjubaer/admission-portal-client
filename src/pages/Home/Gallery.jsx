@@ -13,7 +13,7 @@ const Gallery = () => {
             delay: 100,
         });
 
-        fetch("http://localhost:5000/gallery")
+        fetch("https://admission-portal-server.vercel.app/gallery")
             .then((res) => res.json())
             .then((data) => {
                 setImages(data);

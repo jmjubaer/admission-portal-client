@@ -6,7 +6,7 @@ const Details = () => {
     const id = useParams();
     const [details, setDetails] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/collages/${id?.id}`)
+        fetch(`https://admission-portal-server.vercel.app/collages/${id?.id}`)
             .then((res) => res.json())
             .then((data) => {
                 setDetails(data);

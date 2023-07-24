@@ -45,14 +45,17 @@ const SignUp = () => {
                                             email: data?.email,
                                         };
                                         console.log(newUser);
-                                        fetch("http://localhost:5000/user", {
-                                            method: "POST",
-                                            headers: {
-                                                "Content-Type":
-                                                    "application/json",
-                                            },
-                                            body: JSON.stringify(newUser),
-                                        })
+                                        fetch(
+                                            "https://admission-portal-server.vercel.app/user",
+                                            {
+                                                method: "POST",
+                                                headers: {
+                                                    "Content-Type":
+                                                        "application/json",
+                                                },
+                                                body: JSON.stringify(newUser),
+                                            }
+                                        )
                                             .then((res) => res.json())
                                             .then((data) => {
                                                 if (data?.insertedId) {

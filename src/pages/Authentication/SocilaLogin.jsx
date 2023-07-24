@@ -18,7 +18,9 @@ const SocialLogin = () => {
                     collageName: "null",
                 };
                 console.log(newUser);
-                fetch(`http://localhost:5000/user/${user?.email}`)
+                fetch(
+                    `https://admission-portal-server.vercel.app/user/${user?.email}`
+                )
                     .then((res) => res.json())
                     .then((data) => {
                         if (data) {
@@ -32,11 +34,14 @@ const SocialLogin = () => {
                         }
                     })
                     .catch(() => {
-                        fetch("http://localhost:5000/user", {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify(newUser),
-                        })
+                        fetch(
+                            "https://admission-portal-server.vercel.app/user",
+                            {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify(newUser),
+                            }
+                        )
                             .then((res) => res.json())
                             .then((data) => {
                                 if (data?.insertedId) {

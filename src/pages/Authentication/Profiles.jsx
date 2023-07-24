@@ -1,17 +1,27 @@
 import { FaEnvelope, FaMapMarkerAlt, FaSchool, FaUser } from "react-icons/fa";
 import useAuthContext from "../../Hooks/UseAuthContext";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 const Profiles = () => {
     const { user } = useAuthContext();
     const [userInfo, setUserInfo] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${user?.email}`)
+        fetch(`https://admission-portal-server.vercel.app/user/${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setUserInfo(data);
             });
     }, [user]);
+    const handleUpdate = () => {
+        Swal.fire({
+            icon: "warning",
+            title: "Oops......",
+            text: "This button not work yet",
+            showConfirmButton: false,
+            timer: 1500,
+        });
+    };
     return (
         <div data-aos="zoom-in">
             <div className="text-center w-full md:w-4/5 lg:w-2/3 max-w-[600px] rounded-xl flex flex-col gap-4 p-5 md:p-10 mx-auto my-28 disc_effects_up">
@@ -62,7 +72,10 @@ const Profiles = () => {
                         </p>
                     </div>
                 </div>
-                <button className="disc_effects_up w-1/2 rounded-xl mx-auto active font-bold text-[#f53b57] text-lg py-3">
+                <button
+                    onClick={handleUpdate}
+                    className="disc_effects_up w-1/2 rounded-xl mx-auto active font-bold text-[#f53b57] text-lg py-3"
+                >
                     Edit Profile
                 </button>
             </div>

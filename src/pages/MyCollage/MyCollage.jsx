@@ -15,7 +15,9 @@ const MyCollage = () => {
     const [rating, setRating] = useState(0);
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/mycollage?email=${user?.email}`)
+            fetch(
+                `https://admission-portal-server.vercel.app/mycollage?email=${user?.email}`
+            )
                 .then((res) => res.json())
                 .then((data) => {
                     setStudent(data);
@@ -43,11 +45,14 @@ const MyCollage = () => {
                     });
                 });
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user]);
 
     useEffect(() => {
         if (student?.collageId) {
-            fetch(`http://localhost:5000/collages/${student?.collageId}`)
+            fetch(
+                `https://admission-portal-server.vercel.app/collages/${student?.collageId}`
+            )
                 .then((res) => res.json())
                 .then((data) => {
                     setCollage(data);
@@ -71,7 +76,7 @@ const MyCollage = () => {
             rating: rating,
             studentName: user?.displayName,
         };
-        fetch("http://localhost:5000/reviews", {
+        fetch("https://admission-portal-server.vercel.app/reviews", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(feedback),
