@@ -54,7 +54,7 @@ const Review = () => {
                                     <h3 className="text-xl font-semibold robot">{review?.collegeName}.</h3>
                                     <Rating
                                     style={{ maxWidth: 130, marginTop : "10px"}}
-                                    value={3}
+                                    value={review?.rating}
                                     readOnly
                                     />
                                 </div>

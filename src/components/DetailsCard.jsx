@@ -7,7 +7,7 @@ const DetailsCard = ({details}) => {
     return (
         <div className="    ">
             <div className="card z-0 card-compact rounded-3xl shadow-xl border robot disc_effects w-4/5 mx-auto mt-5">
-                <figure className=""><img className="w-full h-[80vh] object-cover" src={collegeImage} alt="Shoes" /></figure>
+                <figure className=""><img className="w-full h-[80vh] object-cover" src={collegeImage} alt="Collage image" /></figure>
                 <div className="card-body flex-col justify-between m-5">
                     <h2 className="card-title text-2xl robot">{collegeName}</h2>
 

@@ -3,12 +3,14 @@ import useAuthContext from "../../Hooks/UseAuthContext";
 import DetailsCard from "../../components/DetailsCard";
 import LoadingSpinner from "../SheredPage/LoadingSpinner";
 import SectionTitle from "../../components/SectionTitle";
-
+import { Rating } from "@smastrom/react-rating";
+import '@smastrom/react-rating/style.css'
+import Swal from "sweetalert2";
 const MyCollage = () => {
     const {user,loading} = useAuthContext();
     const [collage,setCollage] = useState({});
     const [student,setStudent] = useState({});
-
+    const [rating, setRating] = useState(0);
     useEffect(() => {
         if(user?.email){
             fetch(`http://localhost:5000/mycollage?email=${user?.email}`)
@@ -30,11 +32,38 @@ const MyCollage = () => {
         }
     },[student])
 
-        if(loading){
+    if(loading){
         return <LoadingSpinner></LoadingSpinner>
     }
-    console.log(student);
-    console.log(collage);
+    const handleFeedback = (event) => {
+        event.preventDefault();
+        const reviewText = event.target.feedback.value;
+        const feedback = {
+            reviewText,
+            collegeName: collage?.collegeName,
+            collegeImage: collage?.collegeImage,
+            rating: rating,
+            studentName: user?.displayName
+        }
+        fetch('http://localhost:5000/reviews',{
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(feedback)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.insertedId){
+                Swal.fire({
+                    icon: "success",
+                    title: "Send feedback successfully",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+                event.target.reset();
+            }
+        })
+        console.log(feedback);
+    }
     const {address,birthDate,email,name,number,subject} = student || {};
     return (
         <div className="my-28 jm_container">
@@ -86,6 +115,18 @@ const MyCollage = () => {
                         
 
                     </div>
+                    <form onSubmit={handleFeedback} className="w-4/5 mx-auto mt-8">
+                        <textarea required type="email" name="feedback" id="" className="p-3 w-full disc_effects min-h-[150px] px-5 outline-none rounded-lg" placeholder="Enter Your Feedback...."/>
+                        <div className="flex gap-5 mt-5">
+                            <p className=" text-lg font-semibold">Give rating:</p>
+                            <Rating style={{ maxWidth: 150 }} value={rating}
+                                        onChange={setRating}
+                                        className="z-50"
+                                        isRequired
+                                        />
+                        </div>
+                        <input type="submit" value="Send Feedback" className="btn disc_effects_up mx-auto block mt-8 active"/>
+                </form>
                 </div>
             </div>
         </div>

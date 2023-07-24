@@ -1,11 +1,13 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../pages/SheredPage/Navbar";
+import Footer from "../pages/SheredPage/Footer";
 
 const Main = () => {
     return (
         <div className="bg-[#edf1f4] overflow-auto min-h-[100vh]">
             <Navbar/>
             <Outlet/>
+            <Footer></Footer>
         </div>
     );
 };

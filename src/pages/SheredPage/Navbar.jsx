@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { FaBars,FaTimes } from 'react-icons/fa';
 import useAuthContext from "../../Hooks/UseAuthContext";
 import { ImExit } from "react-icons/im";
+import Logo from "../../components/Logo";
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [control, setControl] = useState(false);
@@ -10,8 +11,9 @@ const Navbar = () => {
     return (
         <div className="fixed top-0 z-30 left-0 bg-[#edf1f4] w-full border-b">
             <nav className='flex lg:grid lg:grid-cols-5 justify-between items-center jm_container py-2 '>
-                <div className='text-4xl lg:col-span-2 text-[#0fbcf9] jm-shadow'><Link to="/"> <span className='logo_font text-5xl text-[#575fcf]'>
-                    A</span>dmission <span className='logo_font text-5xl text-[#575fcf]'>P</span>ortal</Link></div>
+                <div className='lg:col-span-2'>
+                    <Logo></Logo>
+                </div>
 
                 <div className={`jm_nav ${open ? "w-4/5 md:w-1/2 p-5" : "w-0"}`}>
                     <ul className='flex flex-col lg:flex-row gap-3 lg:gap-x-7'>
