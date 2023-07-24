@@ -10,8 +10,8 @@ import useAuthContext from "../../Hooks/UseAuthContext";
 import SocialLogin from "./SocilaLogin";
 const SignUp = () => {
     const { register, handleSubmit, reset } = useForm();
-    const [show,setShow] = useState(true);
-    const [cShow,setcShow] = useState(true);
+    const [show, setShow] = useState(true);
+    const [cShow, setcShow] = useState(true);
     const { createUser } = useAuthContext();
     const hostingUrl = `https://api.imgbb.com/1/upload?key=${
         import.meta.env.VITE_IMAGE_KEY
@@ -43,26 +43,29 @@ const SignUp = () => {
                                             image: imgRes?.data?.display_url,
                                             address: data?.address,
                                             email: data?.email,
-                                        }
+                                        };
                                         console.log(newUser);
-                                        fetch('http://localhost:5000/user',{
-                                            method: 'POST',
-                                            headers: {'Content-Type': 'application/json'},
-                                            body: JSON.stringify(newUser)
+                                        fetch("http://localhost:5000/user", {
+                                            method: "POST",
+                                            headers: {
+                                                "Content-Type":
+                                                    "application/json",
+                                            },
+                                            body: JSON.stringify(newUser),
                                         })
-                                        .then(res => res.json())
-                                        .then(data => {
-                                            if(data?.insertedId){
-                                                Swal.fire({
-                                                    icon: "success",
-                                                    title: "Sign UP success",
-                                                    showConfirmButton: false,
-                                                    timer: 1500,
-                                                });
-                                                reset();
-                                                navigate("/");
-                                            }
-                                        })
+                                            .then((res) => res.json())
+                                            .then((data) => {
+                                                if (data?.insertedId) {
+                                                    Swal.fire({
+                                                        icon: "success",
+                                                        title: "Sign UP success",
+                                                        showConfirmButton: false,
+                                                        timer: 1500,
+                                                    });
+                                                    reset();
+                                                    navigate("/");
+                                                }
+                                            });
                                     });
                                 }
                             })
@@ -81,7 +84,7 @@ const SignUp = () => {
     };
     // data-aos="zoom-in"
     return (
-        <div  className="bg-white rounded-xl p-5 my-28 disc_effects_up  w-11/12 md:w-1/2 mx-auto">
+        <div className="bg-white rounded-xl p-5 my-28 disc_effects_up  w-11/12 md:w-1/2 mx-auto">
             <form onSubmit={handleSubmit(handleSingUp)} className="">
                 <div className="grid md:grid-cols-2 gap-5">
                     <div className="w-full flex flex-col">
@@ -115,7 +118,12 @@ const SignUp = () => {
                     <label className="text-xl mb-4" htmlFor="">
                         Profile Image:
                     </label>
-                    <input required type="file" {...register("image")} className="disc_effects rounded-xl outline-none file-input" />
+                    <input
+                        required
+                        type="file"
+                        {...register("image")}
+                        className="disc_effects rounded-xl outline-none file-input"
+                    />
                 </div>
                 <div className="w-full flex flex-col mt-8">
                     <label className="text-xl mb-4" htmlFor="address">

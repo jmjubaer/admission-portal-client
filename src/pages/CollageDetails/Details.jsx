@@ -7,16 +7,18 @@ const Details = () => {
     const [details, setDetails] = useState({});
     useEffect(() => {
         fetch(`http://localhost:5000/collages/${id?.id}`)
-        .then( res => res.json())
-        .then(data => {
-            setDetails(data);
-        })
-    },[])
+            .then((res) => res.json())
+            .then((data) => {
+                setDetails(data);
+            });
+    }, []);
     console.log(details);
 
     return (
         <div className="my-28 jm_container">
-            <Link to={-1}><button className="btn disc_effects">Back</button></Link>
+            <Link to={-1}>
+                <button className="btn disc_effects">Back</button>
+            </Link>
             <DetailsCard details={details}></DetailsCard>
         </div>
     );
