@@ -59,7 +59,7 @@ const Login = () => {
         })
     }
     return (
-        <div className="bg-white rounded-xl p-5 my-28 disc_effects_up w-1/2 mx-auto">
+        <div data-aos="zoom-in" className="bg-white rounded-xl p-5 my-28 disc_effects_up w-1/2 mx-auto">
             <form onSubmit={handleLogin} className="">
                 <div className="w-full flex flex-col">
                     <label className="text-xl mb-4" htmlFor="email">Email:</label>

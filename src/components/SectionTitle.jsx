@@ -1,8 +1,19 @@
 /* eslint-disable react/prop-types */
-
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+// import Aos from 'aos';
 const SectionTitle = ({title,splTitle}) => {
+        useEffect(() =>{
+            Aos.init({
+                offset: 200,
+                duration: 600,
+                easing: 'ease-in-sine',
+                delay: 100,
+            })
+        },[])
     return (
-        <div className="relative">
+        <div data-aos="zoom-in" className="relative">
             <h2 className="text-4xl font-semibold text-center">
                 {title}
                 <span className="font-normal ml-3 logo_font text-[#575fcf]">

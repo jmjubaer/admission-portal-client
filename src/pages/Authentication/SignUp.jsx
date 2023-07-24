@@ -80,7 +80,7 @@ const SignUp = () => {
         }
     };
     return (
-        <div className="bg-white rounded-xl p-5 my-28 disc_effects_up w-1/2 mx-auto">
+        <div data-aos="zoom-in" className="bg-white rounded-xl p-5 my-28 disc_effects_up w-1/2 mx-auto">
             <form onSubmit={handleSubmit(handleSingUp)} className="">
                 <div className="grid grid-cols-2 gap-5">
                     <div className="w-full flex flex-col">

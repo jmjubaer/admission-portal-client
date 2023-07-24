@@ -3,11 +3,21 @@ import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
 import { Link } from 'react-router-dom';
-
+import { useEffect } from 'react';
+import 'aos/dist/aos.css';
+import Aos from 'aos';
 const CollageCard = ({collage}) => {
+    useEffect(() =>{
+        Aos.init({
+            offset: 200,
+            duration: 600,
+            easing: 'ease-in-sine',
+            delay: 300,
+        })
+    },[])
     const {admissionDates,collegeImage,collegeName,collegeRating,numberOfResearch,numberOfSports,events,_id} = collage || {};
     return (
-            <div className="card z-0 card-compact rounded-3xl shadow-xl border robot disc_effects">
+            <div data-aos="zoom-in" className="card z-0 card-compact rounded-3xl shadow-xl border robot disc_effects">
                 <figure className=""><img className="w-full h-80 object-cover" src={collegeImage} alt="Shoes" /></figure>
                 <div className="card-body flex-col justify-between">
                     <h2 className="card-title text-2xl robot">{collegeName}</h2>

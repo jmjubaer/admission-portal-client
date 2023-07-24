@@ -13,7 +13,7 @@ const Profiles = () => {
         })
     },[user])
     return (
-        <div>
+        <div data-aos="zoom-in">
             <div className="text-center w-full md:w-4/5 lg:w-2/3 max-w-[600px] rounded-xl flex flex-col gap-4 p-5 md:p-10 mx-auto my-28 disc_effects_up">
                 <div className="disc_effects_up mx-auto w-fit p-5 rounded-full">
                     <img className="w-64 mx-auto h-64 rounded-full object-cover" src={userInfo?.image} alt="" />
