@@ -14,7 +14,6 @@ const Review = () => {
             setReviews(data);
         })
     },[])
-    console.log(reviews);
     return (
         <div className="jm_container my-28">
             <SectionTitle

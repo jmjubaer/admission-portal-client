@@ -6,10 +6,12 @@ import SectionTitle from "../../components/SectionTitle";
 import { Rating } from "@smastrom/react-rating";
 import '@smastrom/react-rating/style.css'
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 const MyCollage = () => {
+    const navigate = useNavigate();
     const {user,loading} = useAuthContext();
     const [collage,setCollage] = useState({});
-    const [student,setStudent] = useState({});
+    const [student,setStudent] = useState(null);
     const [rating, setRating] = useState(0);
     useEffect(() => {
         if(user?.email){
@@ -17,6 +19,29 @@ const MyCollage = () => {
             .then(res => res.json())
             .then(data => {
                 setStudent(data)
+            })
+            .catch(() => {
+                Swal.fire({
+                    title: "You don't admit any collage",
+                    text: "Go admission page and admit a collage",
+                    icon: "warning",
+                    showCancelButton: false,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Admission",
+                    showDenyButton: true,
+                    denyButtonText: 'Go Home',
+            
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        navigate("/admission");
+                    }
+                    if (result.isConfirmed) {
+                        navigate("/admission");
+                      } else if (result.isDenied) {
+                        navigate('/')
+                      }
+                });
             })
         }
 
@@ -34,6 +59,9 @@ const MyCollage = () => {
 
     if(loading){
         return <LoadingSpinner></LoadingSpinner>
+    }
+    if(!student){
+        return
     }
     const handleFeedback = (event) => {
         event.preventDefault();

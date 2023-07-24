@@ -22,7 +22,7 @@ const Collage = () => {
     return (
         <div className="my-28 jm_container ">
             <SectionTitle  data-aos="fade-up" title={"Find Your Best"} splTitle={"Collage"}></SectionTitle>
-            <div className="grid grid-cols-2 mt-14 gap-5 justify-evenly">
+            <div className="grid lg:grid-cols-2 mt-14 gap-5 justify-evenly">
                 {
                     collages.slice(0,3).map(collage => <CollageCard key={collage?._id} collage={collage}></CollageCard>)
                 }

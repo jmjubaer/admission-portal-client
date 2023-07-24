@@ -20,7 +20,9 @@ const Navbar = () => {
                         <li><NavLink to="/" className={({ isActive }) => isActive ? "text-blue-e" : "" }>Home</NavLink></li>
                         <li><NavLink className={({ isActive }) => isActive ? "text-blue-e" : "" } to="/collages">Collages</NavLink></li>
                         <li><NavLink className={({ isActive }) => isActive ? "text-blue-e" : "" } to="/admission">Admission</NavLink></li>
-                        <li><NavLink className={({ isActive }) => isActive ? "text-blue-e" : "" } to="/myCollage">My Collage</NavLink></li>
+                        {
+                            user && <li><NavLink className={({ isActive }) => isActive ? "text-blue-e" : "" } to="/myCollage">My Collage</NavLink></li>
+                        }
                     </ul>
 
                     {user ? (

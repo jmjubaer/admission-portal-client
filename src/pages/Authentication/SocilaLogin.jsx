@@ -8,14 +8,49 @@ const SocialLogin = () => {
     const navigate = useNavigate();
     const handleGoogleSignIn = () => {
         googleSignIn()
-        .then(() => {
-            Swal.fire({
-                icon: 'success',
-                title: 'User Login Successful',
-                showConfirmButton: false,
-                timer: 1500
-              })
-            navigate('/')
+        .then((result) => {
+            const user = result.user;
+            const newUser = {
+                name: user?.displayName,
+                image: user?.photoURL,
+                address: "null",
+                email: user?.email,
+                collageName: "null"
+            }
+            console.log(newUser);
+            fetch(`http://localhost:5000/user/${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                if(data){
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'User Login Successful',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                    navigate('/')
+                }
+            })
+            .catch(() => {
+                fetch('http://localhost:5000/user',{
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(newUser)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if(data?.insertedId){
+                        Swal.fire({
+                            icon: "success",
+                            title: "Sign UP success",
+                            showConfirmButton: false,
+                            timer: 1500,
+                        });
+                        navigate("/");
+                    }
+                })
+            })
+
         })
         .catch(err => {
             Swal.fire({

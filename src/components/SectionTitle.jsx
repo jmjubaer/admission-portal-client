@@ -14,7 +14,7 @@ const SectionTitle = ({title,splTitle}) => {
         },[])
     return (
         <div data-aos="zoom-in" className="relative">
-            <h2 className="text-4xl font-semibold text-center">
+            <h2 className="text-2xl sm:text-4xl font-semibold text-center">
                 {title}
                 <span className="font-normal ml-3 logo_font text-[#575fcf]">
                     {splTitle}

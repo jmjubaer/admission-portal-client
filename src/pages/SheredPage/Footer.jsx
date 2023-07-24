@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <div className="bg-[#485460] bg-opacity-50 text-white pt-10">
             <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-10 py-5 border-b-2 border-[#0fbcf9] jm_container">
-                <div className="col-span-2">
+                <div className="sm:col-span-2">
                     <Logo></Logo>
                     <p className="my-5">Discover endless possibilities for your future at our prestigious institution. We are committed to providing a world-class educational experience that empowers students to reach their full potential.</p>
                     <ul className="flex gap-2">

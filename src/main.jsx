@@ -50,7 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/myCollage",
-        element: <MyCollage></MyCollage>
+        element: <PrivetRoute><MyCollage></MyCollage></PrivetRoute>
       },
     ]
   }
